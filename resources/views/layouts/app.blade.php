@@ -23,8 +23,8 @@
             <flux:brand href="#" logo="https://fluxui.dev/img/demo/dark-mode-logo.png" name="Lighthouse MineCraft" class="max-lg:!hidden hidden dark:flex" />
 
             <flux:navbar class="-mb-px max-lg:hidden">
-                <flux:navbar.item icon="home" href="#" current>Home</flux:navbar.item>
-                <flux:navbar.item icon="inbox" badge="12" href="#">Inbox</flux:navbar.item>
+                <flux:navbar.item icon="home" href="{{ route('dashboard') }}">Home</flux:navbar.item>
+                <flux:navbar.item icon="inbox" href="{{ route('acp') }}">ACP</flux:navbar.item>
                 <flux:navbar.item icon="document-text" href="#">Documents</flux:navbar.item>
                 <flux:navbar.item icon="calendar" href="#">Calendar</flux:navbar.item>
 
@@ -72,8 +72,8 @@
             <flux:brand href="#" logo="https://fluxui.dev/img/demo/dark-mode-logo.png" name="Acme Inc." class="hidden px-2 dark:flex" />
 
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="home" href="#" current>Home</flux:navlist.item>
-                <flux:navlist.item icon="inbox" badge="12" href="#">Inbox</flux:navlist.item>
+                <flux:navlist.item icon="home" href="{{ route('dashboard') }}">Home</flux:navlist.item>
+                <flux:navlist.item icon="acp" href="{{ route('acp') }}">ACP</flux:navlist.item>
                 <flux:navlist.item icon="document-text" href="#">Documents</flux:navlist.item>
                 <flux:navlist.item icon="calendar" href="#">Calendar</flux:navlist.item>
 
@@ -93,11 +93,18 @@
         </flux:sidebar>
 
         <flux:main container>
-            <flux:heading size="xl" level="1">Good afternoon, Olivia</flux:heading>
 
-            <flux:subheading size="lg" class="mb-6">Here's what's new today</flux:subheading>
+            @if (isset($header))
+                <header class="mb-6">
+                    <flux:heading size="xl" level="1">{{ $header }}</flux:heading>
 
-            <flux:separator variant="subtle" />
+                    @if (isset($subheader))
+                        <flux:subheading size="lg">{{ $subheader }}</flux:subheading>
+                    @endif
+                </header>
+            @endif
+
+            <flux:separator variant="subtle" class="mb-6" />
 
             {{ $slot }}
         </flux:main>
