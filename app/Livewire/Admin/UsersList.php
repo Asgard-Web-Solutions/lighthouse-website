@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Admin;
 
 use App\Models\User;
 use Livewire\Component;
 
-class AdminUsersList extends Component
+class UsersList extends Component
 {
     public $users;
 
@@ -15,6 +15,6 @@ class AdminUsersList extends Component
 
     public function render()
     {
-        return view('livewire.admin-users-list');
+        return view('livewire.admin.users-list');
     }
 }

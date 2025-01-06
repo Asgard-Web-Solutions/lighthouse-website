@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AdminControlPanelController extends Controller
 {
     public function index() {
-        return view('admin.dashboard');
+        return view('admin.acp');
     }
 
     public function users() {

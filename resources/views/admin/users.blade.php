@@ -9,5 +9,5 @@
         </flux:breadcrumbs>
     </x-slot>
 
-    @livewire('admin-users-list')
+    @livewire('admin.users-list')
 </x-app-layout>

@@ -24,9 +24,7 @@
 
             <flux:navbar class="-mb-px max-lg:hidden">
                 <flux:navbar.item icon="home" href="{{ route('dashboard') }}">Home</flux:navbar.item>
-                <flux:navbar.item icon="inbox" href="{{ route('acp') }}">ACP</flux:navbar.item>
-                <flux:navbar.item icon="document-text" href="#">Documents</flux:navbar.item>
-                <flux:navbar.item icon="calendar" href="#">Calendar</flux:navbar.item>
+                <flux:navbar.item icon="inbox" href="{{ route('acp') }}" :current="request()->routeIs('acp*')">ACP</flux:navbar.item>
 
                 <flux:separator vertical variant="subtle" class="my-2"/>
 
@@ -73,9 +71,7 @@
 
             <flux:navlist variant="outline">
                 <flux:navlist.item icon="home" href="{{ route('dashboard') }}">Home</flux:navlist.item>
-                <flux:navlist.item icon="acp" href="{{ route('acp') }}">ACP</flux:navlist.item>
-                <flux:navlist.item icon="document-text" href="#">Documents</flux:navlist.item>
-                <flux:navlist.item icon="calendar" href="#">Calendar</flux:navlist.item>
+                <flux:navlist.item icon="acp" href="{{ route('acp') }}" :current="request()->routeIs('acp*')">ACP</flux:navlist.item>
 
                 <flux:navlist.group expandable heading="Favorites" class="max-lg:hidden">
                     <flux:navlist.item href="#">Marketing site</flux:navlist.item>
@@ -96,7 +92,7 @@
 
             @if (isset($header))
                 <header class="mb-6">
-                    <flux:heading size="xl" level="1">{{ $header }}</flux:heading>
+                    <flux:heading size="xl" level="1" class="!text-lime-400">{{ $header }}</flux:heading>
 
                     @if (isset($subheader))
                         <flux:subheading size="lg">{{ $subheader }}</flux:subheading>
@@ -110,5 +106,6 @@
         </flux:main>
 
         @fluxScripts
+        <div class="text-lime-400"></div>
     </body>
 </html>
